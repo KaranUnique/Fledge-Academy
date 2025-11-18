@@ -11,7 +11,7 @@ import Heroimg from "../assets/Sample-hero.png"
 
 export default function Home() {
   return (
-    <div className="w-full md:pt-8 min-h-screen bg-white font-[Poppins] relative overflow-hidden">
+    <div className="w-full md:pt-8 min-h-screen bg-white font-[Poppins] relative overflow-x-hidden overflow-y-auto">
       {/* Vertical Japanese Text Decoration */}
       <VerticalJapaneseText 
         text="日本語を学ぶ旅へようこそ" 
@@ -41,13 +41,13 @@ export default function Home() {
       />
       
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-16 mt-12 relative z-10">
+      <section className="w-full flex flex-col md:flex-row items-center justify-between px-2 xs:px-3 sm:px-6 md:px-16 mt-12 relative z-10">
 
         {/* LEFT CONTENT */}
-        <div className="max-w-2xl text-center md:text-left pl-20">
+        <div className="max-w-2xl text-center pt-20 md:pt-0 md:text-left md:pl-20 w-full overflow-x-hidden">
           <FadeUp delay={0.2}>
             <motion.h1 
-              className="text-3xl md:text-[55px] font-bold leading-15 text-[#000000]/70 calligraphy-reveal"
+              className="text-4xl md:text-[55px] font-bold md:leading-15 leading-13 text-[#000000]/70 calligraphy-reveal"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.3 }}
@@ -95,7 +95,7 @@ export default function Home() {
         </div>
 
         {/* RIGHT IMAGE BLOCK */}
-        <div className="mt-10 md:mt-0 relative">
+        <div className="mt-10 md:mt-0 relative w-full flex justify-center md:block">
           {/* Breathing Soft Radial Glow Behind Crane */}
           <motion.div 
             className="absolute -top-10 left-10 w-32 h-32 rounded-full blur-2xl pointer-events-none glow-pink-soft"
@@ -112,7 +112,7 @@ export default function Home() {
           <div className="relative">
             <img
               src={Heroimg}
-              className="w-64 md:w-180 opacity-90"
+              className="w-60 xs:w-64 md:w-180 opacity-90 max-w-full h-auto"
               alt="bg"
             />
           </div>
@@ -120,16 +120,16 @@ export default function Home() {
       </section>
       {/* Pink Tree (RoseFlower) as Absolute Background at Bottom of Home */}
       <motion.div
-        className="pointer-events-none absolute left-0 bottom-20 w-full flex justify-left z-0"
+        className="pointer-events-none absolute left-0 bottom-20 w-full flex justify-left z-0 overflow-x-hidden"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 0.5, y: 0 }}
         transition={{ duration: 1.2, delay: 0.6 }}
         aria-hidden="true"
       >
-          <img
+        <img
           src={RoseFlower}
           alt="Sakura Pink Tree"
-          className="w-[90vw] max-w-4xl min-w-[300px] h-auto object-contain select-none opacity-500 drop-shadow-xl"
+          className="w-screen max-w-4xl min-w-[300px] h-auto object-contain select-none opacity-500 drop-shadow-xl"
           draggable="false"
         />
       </motion.div>
