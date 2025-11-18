@@ -176,14 +176,6 @@ export default function StudentSuccessStories() {
           backgroundSize: "60px 60px"
         }}
       />
-
-      {/* Ensō Circles Decoration */}
-      <div className="absolute top-32 right-[15%] opacity-10 text-red-600">
-        <EnsoCircle size={180} delay={0.5} />
-      </div>
-      <div className="absolute bottom-40 left-[10%] opacity-10 text-blue-600">
-        <EnsoCircle size={140} delay={1} />
-      </div>
       
       {/* Section Header with Japanese Typography */}
       <motion.div
