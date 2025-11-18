@@ -52,10 +52,10 @@ export default function WhyLearnJapanese() {
           {features.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-sm border hover:shadow-lg transition-all relative overflow-hidden"
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all relative overflow-hidden"
             >
               {/* Icon container */}
-              <div className="w-12 h-12 flex items-center justify-center bg-purple-500 rounded-xl mb-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-purple-300 rounded-xl mb-6">
                 {item.icon}
               </div>
 
@@ -66,11 +66,11 @@ export default function WhyLearnJapanese() {
               <p className="text-gray-500 leading-relaxed">{item.desc}</p>
 
               {/* Light background Japanese character (optional for effect) */}
-              <span className="absolute text-gray-200 text-7xl font-bold opacity-20 right-4 top-4 pointer-events-none select-none">
+              <span className="absolute text-gray-300 text-7xl font-bold opacity-20 right-4 top-4 pointer-events-none select-none">
                 {index === 0 && "仕事"}
                 {index === 1 && "文化"}
                 {index === 2 && "旅"}
-                {index === 3 && "N5/N4"}
+                {index === 3 && "文化"}
                 {index === 4 && "和"}
                 {index === 5 && "学ぶ"}
               </span>
