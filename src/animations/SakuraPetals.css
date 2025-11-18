@@ -1,0 +1,79 @@
+/* Sakura Petal Drift Animation - Pure CSS for Performance */
+
+.sakura-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.sakura-petal {
+  position: absolute;
+  top: -50px;
+  font-size: 20px;
+  opacity: 0.4;
+  animation: sakura-fall linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes sakura-fall {
+  0% {
+    top: -50px;
+    opacity: 0;
+    transform: translateX(0) rotate(0deg);
+  }
+  
+  10% {
+    opacity: 0.4;
+  }
+  
+  50% {
+    transform: translateX(100px) rotate(180deg);
+  }
+  
+  90% {
+    opacity: 0.3;
+  }
+  
+  100% {
+    top: 100vh;
+    opacity: 0;
+    transform: translateX(-50px) rotate(360deg);
+  }
+}
+
+/* Alternate animation for variety */
+.sakura-petal:nth-child(even) {
+  animation-name: sakura-fall-alternate;
+}
+
+@keyframes sakura-fall-alternate {
+  0% {
+    top: -50px;
+    opacity: 0;
+    transform: translateX(0) rotate(0deg);
+  }
+  
+  10% {
+    opacity: 0.35;
+  }
+  
+  50% {
+    transform: translateX(-80px) rotate(-180deg);
+  }
+  
+  90% {
+    opacity: 0.25;
+  }
+  
+  100% {
+    top: 100vh;
+    opacity: 0;
+    transform: translateX(60px) rotate(-360deg);
+  }
+}

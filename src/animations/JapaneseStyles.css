@@ -1,0 +1,183 @@
+/* Japanese Aesthetic Global Styles */
+
+/* Washi Paper Texture Overlay */
+.washi-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(200, 200, 200, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(200, 200, 200, 0.03) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(200, 200, 200, 0.03) 3px
+    );
+  mix-blend-mode: multiply;
+}
+
+/* Seigaiha Wave Pattern (Very Subtle) */
+.seigaiha-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: radial-gradient(
+    circle at 0% 50%,
+    rgba(150, 150, 150, 0.1) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 100% 50%,
+    rgba(150, 150, 150, 0.1) 0%,
+    transparent 50%
+  );
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+  pointer-events: none;
+}
+
+/* Wind Lines Animation */
+@keyframes wind-drift {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(0);
+  }
+  20% {
+    opacity: 0.15;
+  }
+  80% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200px) translateY(-30px);
+  }
+}
+
+.wind-line {
+  position: absolute;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(150, 150, 150, 0.3), transparent);
+  animation: wind-drift 12s ease-in-out infinite;
+}
+
+.wind-line:nth-child(1) { top: 15%; animation-delay: 0s; }
+.wind-line:nth-child(2) { top: 35%; animation-delay: 4s; }
+.wind-line:nth-child(3) { top: 65%; animation-delay: 8s; }
+
+/* Ink Ripple Effect (for hover) */
+@keyframes ink-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ink-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100, 80, 200, 0.3), transparent 70%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  animation: ink-ripple 1.2s ease-out;
+}
+
+/* Vertical Japanese Text Styling */
+.vertical-japanese {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.3em;
+}
+
+/* Handwritten Japanese Style */
+.handwritten-japanese {
+  font-family: 'EB Garamond', 'Noto Serif JP', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
+/* Radial Glow Utilities */
+.glow-purple-soft {
+  background: radial-gradient(circle at center, rgba(147, 112, 219, 0.12), transparent 60%);
+}
+
+.glow-pink-soft {
+  background: radial-gradient(circle at center, rgba(255, 192, 203, 0.10), transparent 60%);
+}
+
+.glow-red-soft {
+  background: radial-gradient(circle at center, rgba(220, 100, 100, 0.08), transparent 60%);
+}
+
+/* Breathing Glow Animation */
+@keyframes breathing-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.08;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.15;
+  }
+}
+
+.breathing-glow {
+  animation: breathing-glow 6s ease-in-out infinite;
+}
+
+/* Floating Origami Shapes */
+@keyframes float-origami {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, -15px) rotate(5deg);
+  }
+  50% {
+    transform: translate(-5px, -25px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(-15px, -10px) rotate(3deg);
+  }
+}
+
+.origami-float {
+  animation: float-origami 20s ease-in-out infinite;
+}
+
+/* Japanese Calligraphy Reveal */
+@keyframes calligraphy-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.calligraphy-reveal {
+  animation: calligraphy-reveal 1.5s cubic-bezier(0.6, 0.01, 0.05, 0.95) forwards;
+}
