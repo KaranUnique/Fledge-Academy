@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaQuoteLeft } from "react-icons/fa";
@@ -144,24 +143,24 @@ export default function StudentSuccessStories() {
   });
 
   return (
-    <section className="w-full min-h-screen px-6 py-20 relative overflow-hidden bg-gradient-to-b from-white via-red-50/30 to-white">
-      {/* Cherry Blossom Petals */}
+    <section className="w-full min-h-screen px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative overflow-hidden bg-gradient-to-b from-white via-red-50/30 to-white">
+      {/* Cherry Blossom Petals - Hidden on mobile */}
       {[...Array(8)].map((_, i) => (
-        <div key={i} style={{ left: `${Math.random() * 100}%` }}>
+        <div key={i} className="hidden sm:block" style={{ left: `${Math.random() * 100}%` }}>
           <CherryBlossom delay={i * 2} />
         </div>
       ))}
 
-      {/* Breathing Soft Background Glows */}
+      {/* Breathing Soft Background Glows - Hidden on mobile */}
       <motion.div 
-        className="absolute top-20 left-[10%] w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+        className="hidden md:block absolute top-20 left-[10%] w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full blur-3xl pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(255,182,193,0.4) 0%, transparent 70%)" }}
         variants={breathingScale}
         initial="initial"
         animate="animate"
       />
       <motion.div 
-        className="absolute bottom-20 right-[15%] w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+        className="hidden md:block absolute bottom-20 right-[15%] w-[400px] md:w-[500px] h-[400px] md:h-[500px] rounded-full blur-3xl pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(173,216,230,0.4) 0%, transparent 70%)" }}
         variants={breathingScale}
         initial="initial"
@@ -182,7 +181,7 @@ export default function StudentSuccessStories() {
         variants={fadeUp}
         initial="hidden"
         animate="visible"
-        className="text-center mb-20 relative z-10"
+        className="text-center mb-12 sm:mb-16 md:mb-20 relative z-10"
       >
         {/* Japanese Title */}
         <motion.div
@@ -191,12 +190,12 @@ export default function StudentSuccessStories() {
           transition={{ duration: 0.8 }}
           className="mb-4"
         >
-          <span className="text-5xl md:text-6xl font-bold text-red-600 opacity-20 tracking-wider inline-block">
+          <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-red-600 opacity-20 tracking-wider inline-block">
             成功物語
           </span>
         </motion.div>
         
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative inline-block">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative inline-block px-4">
           Student Success Stories
           {/* Red accent line */}
           <motion.div
@@ -207,7 +206,7 @@ export default function StudentSuccessStories() {
           />
         </h2>
         
-        <p className="text-gray-600 text-lg mt-6 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 mt-6 max-w-2xl mx-auto px-4">
           本物の成功体験 • Real transformation stories from our students
         </p>
       </motion.div>
@@ -215,7 +214,7 @@ export default function StudentSuccessStories() {
       {/* Testimonials Grid */}
       <div 
         ref={ref}
-        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 mb-20"
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative z-10 mb-12 sm:mb-16 md:mb-20"
       >
         {stories.map((item, index) => (
           <motion.div 
@@ -228,18 +227,18 @@ export default function StudentSuccessStories() {
           >
             {/* Card with Japanese Paper Texture */}
 
-            <div className="relative bg-white rounded-xl shadow-md overflow-hidden p-5 border border-red-100 transition-all duration-500 min-h-80">
+            <div className="relative bg-white rounded-xl shadow-md overflow-hidden p-5 sm:p-6 border border-red-100 transition-all duration-500 min-h-[320px] sm:min-h-[350px] md:min-h-80">
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 transition-opacity duration-500`} />
 
-              {/* Large Kanji Background */}
+              {/* Large Kanji Background - Responsive sizing */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                 variants={scaleBreath}
                 initial="initial"
                 animate="animate"
               >
-                <span className="text-[120px] font-bold text-gray-200 opacity-20 select-none leading-none">
+                <span className="text-[80px] sm:text-[100px] md:text-[120px] font-bold text-gray-200 opacity-20 select-none leading-none">
                   {item.kanji}
                 </span>
               </motion.div>
@@ -258,41 +257,41 @@ export default function StudentSuccessStories() {
                     delay: index * 0.2 + 0.3
                   }
                 } : { opacity: 0, rotate: -30, scale: 0.8 }}
-                className="relative inline-block mb-6 z-10"
+                className="relative inline-block mb-4 sm:mb-6 z-10"
               >
-                <div className="bg-gradient-to-br from-red-400 to-pink-400 p-3 rounded-full">
-                  <FaQuoteLeft className="text-white text-xl" />
+                <div className="bg-gradient-to-br from-red-400 to-pink-400 p-2.5 sm:p-3 rounded-full">
+                  <FaQuoteLeft className="text-white text-lg sm:text-xl" />
                 </div>
               </motion.div>
 
               {/* Quote Text */}
-              <p className="text-gray-700 leading-relaxed relative z-10 mb-6 min-h-[100px]">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed relative z-10 mb-4 sm:mb-6 min-h-[80px] sm:min-h-[100px]">
                 "{item.quote}"
               </p>
 
               {/* Traditional Divider */}
-              <div className="relative my-6 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent" />
+              <div className="relative my-4 sm:my-6 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent" />
 
               {/* User Info with Japanese Accent */}
               <div className="flex items-center gap-3 relative z-10 mb-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-400 to-pink-400 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-red-400 to-pink-400 flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-lg">
                   {item.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">{item.name}</h4>
-                  <p className="text-gray-600 text-sm flex items-center gap-1">
+                  <h4 className="font-bold text-sm sm:text-base text-gray-900">{item.name}</h4>
+                  <p className="text-gray-600 text-xs sm:text-sm flex items-center gap-1">
                     <span className="text-red-400">📍</span> {item.location}
                   </p>
                 </div>
               </div>
 
               {/* Japanese Phrase with Translation */}
-              <div className="relative z-10 pt-4 border-t border-red-100">
-                <div className="flex items-center justify-between">
-                  <p className="text-2xl font-bold text-red-400 tracking-wide">
+              <div className="relative z-10 pt-3 sm:pt-4 border-t border-red-100">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="text-lg sm:text-xl md:text-2xl font-bold text-red-400 tracking-wide">
                     {item.phrase}
                   </p>
-                  <span className="text-xs text-gray-500 italic">"{item.kanjiMeaning}"</span>
+                  <span className="text-[10px] sm:text-xs text-gray-500 italic whitespace-nowrap">"{item.kanjiMeaning}"</span>
                 </div>
               </div>
             </div>
@@ -307,12 +306,12 @@ export default function StudentSuccessStories() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="text-center relative z-10 mt-16"
+        className="text-center relative z-10 mt-12 sm:mt-16 px-4"
       >
-        <p className="text-gray-400 text-sm tracking-widest">
+        <p className="text-gray-400 text-xs sm:text-sm tracking-widest">
           あなたの物語も、ここから始まります
         </p>
-        <p className="text-gray-500 text-xs mt-2">
+        <p className="text-gray-500 text-[10px] sm:text-xs mt-2">
           Your story begins here
         </p>
       </motion.div>

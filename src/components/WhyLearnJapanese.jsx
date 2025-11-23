@@ -1,4 +1,3 @@
-import React from "react";
 import { FaBriefcase, FaHeart, FaPlane, FaGraduationCap, FaStar, FaBook } from "react-icons/fa";
 
 export default function WhyLearnJapanese() {
@@ -36,23 +35,23 @@ export default function WhyLearnJapanese() {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
         
         {/* Title */}
-        <h2 className="text-4xl font-bold text-gray-900 mb-3">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
           Why Learn Japanese?
         </h2>
-        <p className="text-gray-500 mb-16">
+        <p className="text-gray-500 mb-10 sm:mb-12 md:mb-16 text-sm sm:text-base">
           Discover opportunities, culture, and a new way of thinking.
         </p>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {features.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all relative overflow-hidden"
+              className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all relative overflow-hidden"
             >
               {/* Icon container */}
               <div className="w-12 h-12 flex items-center justify-center bg-purple-300 rounded-xl mb-6">
@@ -60,13 +59,13 @@ export default function WhyLearnJapanese() {
               </div>
 
               {/* Text */}
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3">
                 {item.title}
               </h3>
-              <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">{item.desc}</p>
 
-              {/* Light background Japanese character (optional for effect) */}
-              <span className="absolute text-gray-300 text-7xl font-bold opacity-20 right-4 top-4 pointer-events-none select-none">
+              {/* Light background Japanese character - Hidden on small screens */}
+              <span className="hidden sm:block absolute text-gray-300 text-5xl md:text-6xl lg:text-7xl font-bold opacity-20 right-4 top-4 pointer-events-none select-none">
                 {index === 0 && "仕事"}
                 {index === 1 && "文化"}
                 {index === 2 && "旅"}

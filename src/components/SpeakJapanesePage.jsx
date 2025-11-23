@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaCheckCircle } from "react-icons/fa";
@@ -53,7 +52,7 @@ export default function SpeakJapanesePage() {
   });
 
   return (
-    <section className="w-full min-h-screen pt-50 bg-white relative overflow-hidden no-rays">
+    <section className="w-full min-h-screen py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden no-rays">
 
       {/* Remove rays, glow, blur everywhere */}
       <style>{`
@@ -72,19 +71,19 @@ export default function SpeakJapanesePage() {
         }
       `}</style>
 
-      {/* CLEAN BACKGROUND KANJI */}
-      <div className="absolute inset-0 pointer-events-none select-none">
+      {/* CLEAN BACKGROUND KANJI - Hidden on mobile */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none select-none">
         <CleanBreathingKanji
           kanji="本"
-          className="absolute right-20 bottom-32 text-[500px] font-bold text-pink-50"
+          className="absolute right-10 xl:right-20 bottom-32 text-[300px] xl:text-[500px] font-bold text-pink-50"
         />
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-12 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6 relative z-10 mt-16 md:mt-24">
 
         {/* SLIDING IMAGES */}
-        <div className="md:w-1/2 w-full h-[420px] relative overflow-hidden rounded-2xl bg-white">
+        <div className="md:w-1/2 w-full h-[280px] sm:h-[350px] md:h-[420px] relative overflow-hidden rounded-2xl bg-white shadow-lg">
           <motion.div
             className="flex flex-col h-full"
             animate={{ y: ["0%", "-100%"] }}
@@ -95,7 +94,7 @@ export default function SpeakJapanesePage() {
             }}
           >
             {[...images, ...images].map((src, index) => (
-              <div key={index} className="w-full h-[420px] shrink-0">
+              <div key={index} className="w-full h-[280px] sm:h-[350px] md:h-[420px] shrink-0">
                 <img
                   src={src}
                   alt="japan"
@@ -110,8 +109,8 @@ export default function SpeakJapanesePage() {
         {/* RIGHT CONTENT */}
         <div className="md:w-1/2 w-full relative z-10">
           <FadeUp>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-              We help beginners speak <br />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+              We help beginners speak <br className="hidden sm:block" />
               Japanese{" "}
               <span className="bg-linear-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent inline-block">
                 <ShimmerText>the right way.</ShimmerText>
@@ -119,10 +118,10 @@ export default function SpeakJapanesePage() {
             </h2>
           </FadeUp>
 
-          <BrushStrokeDivider className="my-8" />
+          <BrushStrokeDivider className="my-6 sm:my-8" />
 
           <FadeUp delay={0.2}>
-            <p className="text-gray-600 mt-6 leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-600 mt-4 sm:mt-6 leading-relaxed">
               Fledge Academy was created to make learning Japanese simple,
               practical, and enjoyable. Our approach blends structured lessons,
               cultural insights, and real-life speaking practice.
@@ -135,15 +134,15 @@ export default function SpeakJapanesePage() {
             variants={staggerContainer}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="mt-8 space-y-4"
+            className="mt-6 sm:mt-8 space-y-3 sm:space-y-4"
           >
             {points.map((item, index) => (
               <motion.li
                 key={index}
                 variants={staggerItem}
-                className="flex items-center gap-3 text-gray-800"
+                className="flex items-center gap-3 text-sm sm:text-base text-gray-800"
               >
-                <FaCheckCircle className="text-purple-500 shrink-0" size={20} />
+                <FaCheckCircle className="text-purple-500 shrink-0" size={18} />
                 <span>{item}</span>
               </motion.li>
             ))}
