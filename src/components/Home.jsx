@@ -44,7 +44,7 @@ export default function Home() {
       <section className="w-full flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-16 mt-8 md:mt-12 relative z-10">
 
         {/* LEFT CONTENT */}
-        <div className="max-w-2xl text-center  pt-16 md:pt-25 md:text-left md:pl-8 lg:pl-20 w-full overflow-x-hidden">
+        <div className="max-w-2xl text-center  pt-16 md:pt-25 md:text-left md:pl-8 lg:pl-20 w-full overflow-x-visible">
           <FadeUp delay={0.2}>
             <motion.h1 
               className="text-3xl hero-text sm:text-2xl md:text-5xl lg:text-[55px]  font-bold leading-tight md:leading-tight lg:leading-[1.2] text-[#000000]/70 calligraphy-reveal px-2 md:px-0"
