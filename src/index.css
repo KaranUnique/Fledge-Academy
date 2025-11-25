@@ -7,3 +7,15 @@
 .animate-fadeIn {
   animation: fadeIn 0.25s ease-out;
 }
+
+
+
+
+.mobile-3d {
+  perspective: 1200px;
+}
+
+.mobile-3d-card {
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+}
