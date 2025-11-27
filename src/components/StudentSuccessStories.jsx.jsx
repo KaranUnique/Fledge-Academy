@@ -171,38 +171,42 @@ export default function StudentSuccessStories() {
 
       {/* 📱 MOBILE – 3D CAROUSEL */}
       <div className="sm:hidden relative w-full max-w-xs mx-auto mb-16 h-[380px] overflow-visible">
-
-        <div className="relative w-full h-full flex items-center justify-center">
-
+        <motion.div
+          className="relative w-full h-full flex items-center justify-center"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.8}
+          onDragEnd={(e, info) => {
+            if (info.offset.x < -50) {
+              setActive((prev) => (prev + 1) % total);
+            } else if (info.offset.x > 50) {
+              setActive((prev) => (prev - 1 + total) % total);
+            }
+          }}
+          style={{ touchAction: "pan-x" }}
+        >
           {stories.map((item, index) => {
             const pos = (index - active + total) % total;
-
-            // Default
             let transform = "scale(0.5)";
             let opacity = 0;
             let zIndex = 1;
             let filter = "none";
-
             if (pos === 0) {
-              // CENTER
               transform = "translateX(0px) scale(1) rotateY(0deg)";
               opacity = 1;
               zIndex = 5;
               filter = "none";
             } else if (pos === 1) {
-              // RIGHT
               transform = "translateX(90px) scale(0.85) rotateY(-45deg)";
               opacity = 0.7;
               zIndex = 3;
               filter = "blur(6px) brightness(0.95)";
             } else if (pos === total - 1) {
-              // LEFT
               transform = "translateX(-90px) scale(0.85) rotateY(45deg)";
               opacity = 0.7;
               zIndex = 3;
               filter = "blur(6px) brightness(0.95)";
             }
-
             return (
               <motion.div
                 key={index}
@@ -225,15 +229,11 @@ export default function StudentSuccessStories() {
                   >
                     <span className="text-[100px] font-bold text-gray-200">{item.kanji}</span>
                   </motion.div>
-
                   <div className="bg-linear-to-br from-red-400 to-pink-400 p-3 rounded-full mb-4 inline-block">
                     <FaQuoteLeft className="text-white text-xl" />
                   </div>
-
                   <p className="text-gray-700 text-base mb-6">"{item.quote}"</p>
-
                   <div className="h-px bg-linear-to-r from-transparent via-red-300 to-transparent my-4" />
-
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-linear-to-br from-red-400 to-pink-400 flex items-center justify-center text-white text-lg">
                       {item.name.charAt(0)}
@@ -245,7 +245,6 @@ export default function StudentSuccessStories() {
                       </p>
                     </div>
                   </div>
-
                   <div className="pt-4 border-t border-red-100">
                     <div className="flex items-center justify-between">
                       <p className="text-xl font-bold text-red-400">{item.phrase}</p>
@@ -256,7 +255,7 @@ export default function StudentSuccessStories() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
       {/* 💻 DESKTOP GRID (unchanged) */}
